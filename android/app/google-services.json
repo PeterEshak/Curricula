@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "5063399028",
+    "firebase_url": "https://curricula-apple-default-rtdb.firebaseio.com",
+    "project_id": "curricula-apple",
+    "storage_bucket": "curricula-apple.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:5063399028:android:dbf849ba850b663be12321",
+        "android_client_info": {
+          "package_name": "com.example.curricula_apple"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "5063399028-rv0hgsr701sdqkfs97quadlv6i1qd124.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBWkwcIjfijyw-GAf76WrV-jf-yKfZDE3o"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "5063399028-rv0hgsr701sdqkfs97quadlv6i1qd124.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
