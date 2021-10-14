@@ -1,7 +1,9 @@
+import 'package:curricula_apple/models/providers/theme_provider.dart';
 import 'package:curricula_apple/shared/style/themes.dart';
 
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:provider/provider.dart';
 import '../../main.dart';
 import '../../shared/components/constants.dart';
 import '../../shared/network/local/cache_helper.dart';
@@ -33,7 +35,7 @@ class RegisterScreen extends StatelessWidget {
               ).then((value) {
                 token = state.loginModel.data!.token!;
                 navigateAndFinish(context, MyApp(
-                      themeMode: themeDataString(context),
+                      themeMode: Provider.of<ThemeProvider>(context).getThemeMode(),
                       startWidget: null,
                     ));
               });

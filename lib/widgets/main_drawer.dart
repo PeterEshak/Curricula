@@ -1,4 +1,5 @@
 import 'package:curricula_apple/modules/setting.dart';
+import 'package:curricula_apple/screens/theme_screen.dart';
 
 import '../screens/categories_screen.dart';
 import '../screens/favorites_screen.dart';
@@ -28,7 +29,8 @@ class _MainDrawerState extends State<MainDrawer> {
     const CalculatorMain(),
     const TestScreen(),
     const FiltersScreen(),
-    const SettingScreen(),
+    // const SettingScreen(),
+    const ThemeScreen(),
     // const AppInfoScreen(),
   ];
 
@@ -39,7 +41,8 @@ class _MainDrawerState extends State<MainDrawer> {
     'Calculator',
     'New Apps',
     'Filter',
-    'Setting'
+    // 'Setting',
+    'Themes',
     // 'App Information',
   ];
 
@@ -50,18 +53,19 @@ class _MainDrawerState extends State<MainDrawer> {
     Icons.calculate_outlined,
     Icons.new_releases_outlined,
     Icons.save,
-    Icons.settings,
+    // Icons.settings,
+    Icons.color_lens,
     // Icons.add_to_home_screen,
   ];
 
   @override
   Widget build(BuildContext context) {
     return Drawer(
+      elevation: 0,
       child: Column(
         children: [
           const SizedBox(height: 50),
           Container(
-            // constraints: const BoxConstraints(maxHeight: 100,minHeight: 50,maxWidth: 100,minWidth: 50,),
             height: 100,
             decoration: BoxDecoration(
               borderRadius: BorderRadius.circular(10),
@@ -89,14 +93,10 @@ class _MainDrawerState extends State<MainDrawer> {
             width: double.infinity,
             padding: const EdgeInsets.all(20),
             alignment: Alignment.centerLeft,
-            child: const Center(
+            child: Center(
               child: Text(
                 'مناهج',
-                style: TextStyle(
-                  fontWeight: FontWeight.w900,
-                  fontSize: 38,
-                  color: Colors.red,
-                ),
+                style: Theme.of(context).textTheme.bodyText1,
                 textAlign: TextAlign.center,
               ),
             ),
@@ -105,14 +105,7 @@ class _MainDrawerState extends State<MainDrawer> {
             shrinkWrap: true,
             itemBuilder: (context, index) => ListTile(
               leading: Icon(icons[index], size: 26),
-              title: Text(
-                titles[index],
-                style: const TextStyle(
-                  fontSize: 24,
-                  fontFamily: 'RobotoCondensed',
-                  fontWeight: FontWeight.bold,
-                ),
-              ),
+              title: Text(titles[index],style: Theme.of(context).textTheme.headline6,),
               onTap: () {
                 selectPage;
                 navigateAndFinish(context, pages[index]);
@@ -121,7 +114,7 @@ class _MainDrawerState extends State<MainDrawer> {
             separatorBuilder: (context, index) => const Padding(
               padding: EdgeInsetsDirectional.only(
                 start: 20,
-                top: 20,
+                top: 5,
               ),
             ),
             // separatorBuilder: (context, index) => Padding(

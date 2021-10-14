@@ -1,4 +1,6 @@
+import 'package:curricula_apple/models/providers/theme_provider.dart';
 import 'package:curricula_apple/shared/style/themes.dart';
+import 'package:provider/provider.dart';
 
 import '../../main.dart';
 import 'package:flutter/material.dart';
@@ -33,7 +35,7 @@ class LoginScreen extends StatelessWidget {
                 navigateAndFinish(
                     context,
                     MyApp(
-                      themeMode: themeDataString(context),
+                      themeMode: Provider.of<ThemeProvider>(context).getThemeMode(),
                       startWidget: null,
                     ));
               });

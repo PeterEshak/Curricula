@@ -48,6 +48,7 @@ class _FiltersScreenState extends State<FiltersScreen> {
         subtitle: Text(description),
         value: type,
         onChanged: (bool value) => updateNewValue(value),
+        inactiveTrackColor: Colors.black,
       );
 
   @override

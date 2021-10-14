@@ -1,10 +1,13 @@
 import 'package:curricula_apple/models/providers/curricula_provider.dart';
+import 'package:curricula_apple/models/providers/theme_provider.dart';
+import 'package:curricula_apple/screens/theme_screen.dart';
 import 'package:provider/provider.dart';
 
 import 'app_screen.dart';
 import '../widgets/main_drawer.dart';
 import 'calculator/calculator_main.dart';
 import 'categories_screen.dart';
+import 'curved_nav_drawer.dart';
 import 'favorites_screen.dart';
 import 'product_main_screen.dart';
 import 'package:flutter/material.dart';
@@ -24,12 +27,14 @@ class _BottomNavBarState extends State<BottomNavBar> {
   @override
   void initState() {
     Provider.of<CurriculaProvider>(context,listen: false).getData();
+    Provider.of<ThemeProvider>(context,listen: false).getThemeMode();
+    Provider.of<ThemeProvider>(context,listen: false).getThemeColor();
     _pages = [
       {'page': const CategoriesScreen()},
       {'page': const FavoritesScreen()},
       {'page': const ProductMain()},
       {'page': const CalculatorMain()},
-      {'page': const TestScreen()},
+      {'page': const ThemeScreen()},
     ];
     super.initState();
   }
@@ -63,7 +68,7 @@ class _BottomNavBarState extends State<BottomNavBar> {
         animationCurve: Curves.easeInOut,
         animationDuration: const Duration(milliseconds: 600),
       ),
-      drawer: const MainDrawer(),
+      drawer:  const MainDrawer(),
     );
   }
 }

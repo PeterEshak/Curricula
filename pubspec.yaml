@@ -56,6 +56,7 @@ dependencies:
   carousel_slider: ^4.0.0
   shared_preferences: ^2.0.6
   splash_screen_view: ^3.0.0
+  flutter_colorpicker: ^0.6.0
   font_awesome_flutter: ^9.1.0
   curved_navigation_bar: ^1.0.1
   smooth_page_indicator: ^1.0.0+2

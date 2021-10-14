@@ -1,6 +1,8 @@
 import 'dart:math';
 
+import 'package:curricula_apple/models/providers/theme_provider.dart';
 import 'package:curricula_apple/shared/style/themes.dart';
+import 'package:provider/provider.dart';
 
 import '../modules/on_boarding_screen.dart';
 import '../shared/network/local/cache_helper.dart';
@@ -54,12 +56,12 @@ class _SplashScreensState extends State<SplashScreens> {
     if (onBoarding != null) {
       if (token != '')
         widget = MyApp(
-          themeMode: themeDataString(context),
+          themeMode: Provider.of<ThemeProvider>(context!).getThemeMode(),
           startWidget: widget,
         );
       else
         widget = MyApp(
-          themeMode: themeDataString(context),
+          themeMode: Provider.of<ThemeProvider>(context!).getThemeMode(),
           startWidget: widget,
         );
         // widget = LoginScreen();

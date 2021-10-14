@@ -1,14 +1,25 @@
+import 'package:curricula_apple/models/providers/theme_provider.dart';
 import 'package:curricula_apple/shared/cubit/cubit.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:hexcolor/hexcolor.dart';
+import 'package:provider/provider.dart';
 
 import 'colors.dart';
 
+BuildContext? context;
 ThemeData darkTheme = ThemeData(
-  primarySwatch: defaultColor,
+  primarySwatch: Provider.of<ThemeProvider>(context!).primaryColor,
+  colorScheme: ColorScheme.dark(
+      secondary: Provider.of<ThemeProvider>(context!).accentColor),
   visualDensity: VisualDensity.adaptivePlatformDensity,
   platform: TargetPlatform.android,
+  unselectedWidgetColor: Colors.white,
+  buttonTheme: const ButtonThemeData(
+    buttonColor: Colors.white,
+  ),
+  cardColor: const Color.fromRGBO(35, 34, 39, 1),
+  shadowColor: Colors.white60,
   appBarTheme: AppBarTheme(
     centerTitle: true,
     titleSpacing: 20,
@@ -59,21 +70,36 @@ ThemeData darkTheme = ThemeData(
     // showUnselectedLabels: true,
   ),
   scaffoldBackgroundColor: HexColor('333739'),
+  iconTheme: const IconThemeData(color: Colors.white),
   textTheme: const TextTheme(
     bodyText1: TextStyle(
       fontSize: 18,
       fontWeight: FontWeight.w600,
       color: Colors.white,
     ),
+    headline6: TextStyle(
+      color: Colors.white60,
+      fontSize: 20,
+      fontFamily: 'RobotoCondensed',
+      fontWeight: FontWeight.bold,
+    ),
   ),
   fontFamily: 'RobotoCondensed',
 );
 
 ThemeData lightTheme = ThemeData(
-  primarySwatch: defaultColor,
+  primarySwatch: Provider.of<ThemeProvider>(context!).primaryColor,
+  colorScheme: ColorScheme.light(
+      secondary: Provider.of<ThemeProvider>(context!).accentColor),
   visualDensity: VisualDensity.adaptivePlatformDensity,
   platform: TargetPlatform.android,
   scaffoldBackgroundColor: Colors.white,
+  unselectedWidgetColor: Colors.black,
+  buttonTheme: const ButtonThemeData(
+    buttonColor: Colors.black,
+  ),
+  cardColor: const Color.fromRGBO(185, 180, 180, 1),
+  shadowColor: Colors.black54,
   appBarTheme: const AppBarTheme(
     centerTitle: true,
     titleSpacing: 20,
@@ -120,32 +146,42 @@ ThemeData lightTheme = ThemeData(
     //   fontWeight: FontWeight.w500,
     // ),
   ),
+  iconTheme: const IconThemeData(color: Colors.black),
   textTheme: const TextTheme(
     bodyText1: TextStyle(
       fontSize: 18,
       fontWeight: FontWeight.w600,
       color: Colors.black,
     ),
+    headline6: TextStyle(
+      color: Colors.black54,
+      fontSize: 20,
+      fontFamily: 'RobotoCondensed',
+      fontWeight: FontWeight.bold,
+    ),
   ),
+  switchTheme: SwitchThemeData(
+      // trackColor: Colors.black,
+      ),
   fontFamily: 'RobotoCondensed',
 );
 
-  ThemeMode themeDataMode(BuildContext context) {
-    if (AppCubit.get(context).themeMode == 'dark') {
-      return ThemeMode.dark;
-    } else if (AppCubit.get(context).themeMode == 'light') {
-      return ThemeMode.light;
-    } else {
-      return ThemeMode.system;
-    }
-  }
+// ThemeMode themeDataMode(BuildContext context) {
+//   if (AppCubit.get(context).themeMode == 'dark') {
+//     return ThemeMode.dark;
+//   } else if (AppCubit.get(context).themeMode == 'light') {
+//     return ThemeMode.light;
+//   } else {
+//     return ThemeMode.system;
+//   }
+// }
 
-  String themeDataString(BuildContext context) {
-    if (AppCubit.get(context).theme == ThemeMode.dark) {
-      return 'dark';
-    } else if (AppCubit.get(context).theme == ThemeMode.light) {
-      return 'light';
-    } else {
-      return 'system';
-    }
-  }
+// String themeDataString(BuildContext context) {
+//   if (AppCubit.get(context).theme == ThemeMode.dark) {
+//     return 'dark';
+//   } else if (AppCubit.get(context).theme == ThemeMode.light) {
+//     return 'light';
+//   } else {
+//     return 'system';
+//   }
+// }

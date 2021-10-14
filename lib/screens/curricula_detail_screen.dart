@@ -95,7 +95,11 @@ class _CurriculaDetailScreenState extends State<CurriculaDetailScreen> {
             ),
             //urlLunch(context),
             if (selectedCurricula.ingredients.isEmpty)
-              Text('لا يوجد فديوهات شرح لماده ${selectedCurricula.title}'),
+              Text(
+                'لا يوجد فديوهات شرح لماده ${selectedCurricula.title}',
+                style: TextStyle(
+                    color: Theme.of(context).textTheme.headline6!.color),
+              ),
             if (selectedCurricula.ingredients.isNotEmpty)
               buildSectionTitle(
                   context, 'فديوهات شرح لماده ${selectedCurricula.title}'),
@@ -108,12 +112,15 @@ class _CurriculaDetailScreenState extends State<CurriculaDetailScreen> {
                         const EdgeInsets.symmetric(vertical: 5, horizontal: 10),
                     child: selectedCurricula.ingredients[index].isNotEmpty
                         ? ElevatedButton(
-                            child: Text(selectedCurricula.ingredients[index]),
+                            child: Text(
+                              selectedCurricula.ingredients[index],
+                              style: Theme.of(ctx).textTheme.headline6,
+                            ),
                             onPressed: () => launched = _launchInBrowser(
                                 selectedCurricula.ingredients[index]),
                           )
                         : Text(
-                            'لا يوجد فديوهات لماده ${selectedCurricula.title} حتي الان'),
+                            'لا يوجد فديوهات لماده ${selectedCurricula.title} حتي الان',style: Theme.of(ctx).textTheme.headline6,),
                   ),
                 ),
                 itemCount: selectedCurricula.ingredients.length,

@@ -1,4 +1,5 @@
-import 'package:curricula_apple/models/curricula.dart';
+import 'package:curricula_apple/modules/setting.dart';
+import 'package:curricula_apple/screens/theme_screen.dart';
 
 import '../screens/product_main_screen.dart';
 import 'app_screen.dart';
@@ -13,8 +14,7 @@ import 'filters_screen.dart';
 import 'bottom_nav_bar.dart';
 
 class CurvedNavDra extends StatefulWidget {
-    final List<Curricula> favoriteCurricula;
-  const CurvedNavDra({Key? key, required this.favoriteCurricula}) : super(key: key);
+  const CurvedNavDra({Key? key}) : super(key: key);
 
   @override
   CurvedNavDraState createState() => CurvedNavDraState();
@@ -36,6 +36,8 @@ class CurvedNavDraState extends State<CurvedNavDra>
       {'page': const ProductMain()},
       {'page': const CalculatorMain()},
       {'page': const TestScreen()},
+      {'page': const SettingScreen()},
+      {'page': const ThemeScreen()},
     ];
     _titles = [
       {'title': 'The Classes'},
@@ -43,6 +45,8 @@ class CurvedNavDraState extends State<CurvedNavDra>
       {'title': 'My Curricula'},
       {'title': 'الة حاسبه'},
       {'title': 'New Apps'},
+      {'title': 'Setting'},
+      {'title': 'Theme'},
     ];
     _controller = FancyDrawerController(
       vsync: this,
@@ -91,35 +95,35 @@ class CurvedNavDraState extends State<CurvedNavDra>
             Icons.home,
             () => navigateAndFinish(context, const BottomNavBar()),
           ),
-          buildDivider(Colors.green),
           buildListTile(
             'المناهج الدراسيه',
             Icons.restaurant,
-            () => navigateAndFinish(context, const BottomNavBar()),
+            () => navigateAndFinish(context, const CategoriesScreen()),
           ),
-          buildDivider(Colors.pink),
           buildListTile(
             'فلتر',
             Icons.settings,
             () => navigateAndFinish(context, const FiltersScreen()),
           ),
-          buildDivider(Colors.red),
           buildListTile(
             'الة حاسبة',
             Icons.calculate_outlined,
             () => navigateAndFinish(context, const CalculatorMain()),
           ),
-          // buildDivider(Colors.teal),
-          // buildListTile(
-          //   'حول البرنامج',
-          //   Icons.add_to_home_screen,
-          //   () => navigateAndFinish(context, const AppInfoScreen()),
-          // ),
-          buildDivider(Colors.purple),
           buildListTile(
             'New Apps',
             Icons.new_releases_outlined,
             () => navigateAndFinish(context, const TestScreen()),
+          ),
+          buildListTile(
+            'Setting',
+            Icons.calculate_outlined,
+            () => navigateAndFinish(context, const SettingScreen()),
+          ),
+          buildListTile(
+            'Theme',
+            Icons.new_releases_outlined,
+            () => navigateAndFinish(context, const ThemeScreen()),
           ),
         ],
         child: Scaffold(
