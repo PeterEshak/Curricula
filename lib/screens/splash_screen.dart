@@ -1,7 +1,7 @@
 import 'dart:math';
 
+import 'package:curricula_apple/models/providers/language_provider.dart';
 import 'package:curricula_apple/models/providers/theme_provider.dart';
-import 'package:curricula_apple/shared/style/themes.dart';
 import 'package:provider/provider.dart';
 
 import '../modules/on_boarding_screen.dart';
@@ -39,16 +39,19 @@ class _SplashScreensState extends State<SplashScreens> {
 
   @override
   Widget build(BuildContext context) {
+    ThemeProvider theme = Provider.of<ThemeProvider>(context);
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      theme: lightTheme,
-      darkTheme: darkTheme,
+      theme: theme.darkTheme(),
+      darkTheme: theme.darkTheme(),
+      themeMode: Provider.of<ThemeProvider>(context, listen: true).tm,
       // themeMode:AppCubit.get(context).isDark ? ThemeMode.dark : ThemeMode.light,
       home: Scaffold(body: buildSplashScreenView()),
     );
   }
 
   SplashScreenView buildSplashScreenView() {
+    String themeMode = CacheHelper.getData(key: 'themeText') ?? 's';
     Widget? widget;
     bool onBoarding = CacheHelper.getData(key: 'onBoarding') ?? false;
     String token = CacheHelper.getData(key: 'token') ?? '';
@@ -56,18 +59,18 @@ class _SplashScreensState extends State<SplashScreens> {
     if (onBoarding != null) {
       if (token != '')
         widget = MyApp(
-          themeMode: Provider.of<ThemeProvider>(context!).getThemeMode(),
+          themeMode: themeMode,
           startWidget: widget,
         );
       else
         widget = MyApp(
-          themeMode: Provider.of<ThemeProvider>(context!).getThemeMode(),
+          themeMode: themeMode,
           startWidget: widget,
         );
-        // widget = LoginScreen();
+      // widget = LoginScreen();
     } else
       widget = const OnBoardingScreen();
-
+    LanguageProvider lan = Provider.of<LanguageProvider>(context, listen: true);
     return SplashScreenView(
       pageRouteTransition: PageRouteTransition.SlideTransition,
       navigateRoute: widget,
@@ -75,7 +78,7 @@ class _SplashScreensState extends State<SplashScreens> {
       duration: 3000,
       imageSize: 150,
       imageSrc: 'assets/images/download.jpg',
-      text: 'اهلا بك في مناهج',
+      text: lan.getTexts('splash_screen_text').toString(),
       textType: TextType.ColorizeAnimationText,
       textStyle: const TextStyle(fontSize: 40.0),
       colors: [

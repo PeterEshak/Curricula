@@ -1,4 +1,5 @@
 import 'package:curricula_apple/models/providers/curricula_provider.dart';
+import 'package:curricula_apple/models/providers/language_provider.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
 import 'package:provider/provider.dart';
@@ -16,7 +17,6 @@ class CategoryCurriculaScreen extends StatefulWidget {
 }
 
 class _CategoryCurriculaScreenState extends State<CategoryCurriculaScreen> {
-  late String categoryTitle;
   late List<Curricula> displayCurricula;
   bool _loadedInitData = false;
   @override
@@ -27,13 +27,13 @@ class _CategoryCurriculaScreenState extends State<CategoryCurriculaScreen> {
 
   @override
   void didChangeDependencies() {
-        final List<Curricula> availableCurricula =
-        Provider.of<CurriculaProvider>(context, listen: true).availableCurricula;
+    final List<Curricula> availableCurricula =
+        Provider.of<CurriculaProvider>(context, listen: true)
+            .availableCurricula;
 
     if (!_loadedInitData) {
       final routeArgs =
           ModalRoute.of(context)!.settings.arguments as Map<String, String>;
-      categoryTitle = routeArgs['title']!;
       final categoryId = routeArgs['id'];
       displayCurricula = availableCurricula.where((curricula) {
         return curricula.curricula.contains(categoryId);
@@ -56,19 +56,23 @@ class _CategoryCurriculaScreenState extends State<CategoryCurriculaScreen> {
   @override
   Widget build(BuildContext context) {
     // print(displayCurricula.length);
+    bool isLandscape =
+        MediaQuery.of(context).orientation == Orientation.landscape;
+    double dw = MediaQuery.of(context).size.width;
+    LanguageProvider lan = Provider.of<LanguageProvider>(context, listen: true);
+
     return Scaffold(
       appBar: AppBar(
         title: SingleChildScrollView(
           scrollDirection: Axis.horizontal,
-          child: Text('$categoryTitle : ${displayCurricula.length} كتب'),
+          child: Text('${lan.getTexts('cur-${displayCurricula[0].id}')} ${lan.getTexts('cur-${displayCurricula[0].id}')} : ${displayCurricula.length} كتب'),
         ),
         centerTitle: true,
       ),
-      body: ListView.builder(
+      body: GridView.builder(
         itemBuilder: (ctx, index) {
           return CurriculaItem(
             id: displayCurricula[index].id,
-            title: displayCurricula[index].title,
             image: displayCurricula[index].image,
             classesOfSchool: displayCurricula[index].classesOfSchool,
             curriculaOfSchool: displayCurricula[index].curriculaOfSchool,
@@ -76,6 +80,12 @@ class _CategoryCurriculaScreenState extends State<CategoryCurriculaScreen> {
           );
         },
         itemCount: displayCurricula.length,
+        gridDelegate: SliverGridDelegateWithMaxCrossAxisExtent(
+          maxCrossAxisExtent: dw <=400? 400:500,
+          childAspectRatio: isLandscape ? dw / (dw*0.615) : dw / (dw*0.9),
+          crossAxisSpacing: 0,
+          mainAxisSpacing: 0,
+        ),
       ),
     );
   }

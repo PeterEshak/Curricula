@@ -1,5 +1,4 @@
 import 'package:curricula_apple/models/providers/theme_provider.dart';
-import 'package:curricula_apple/shared/style/themes.dart';
 
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';

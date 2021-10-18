@@ -12,18 +12,23 @@ enum CurriculaOfSchool {
   english,
   mathInArabic,
   mathInEnglish,
+  actashfInArabic,
+  actashfInEnglish,
+  masehy,
+  moslim,
   scienceInArabic,
   scienceInEnglish,
   socialStudies,
+  story,
+  storyInIslam,
 }
 
 class Curricula {
   final String id;
   final List<String> curricula;
-  final String title;
   final String image;
   final String pdf;
-  final List<String> ingredients;
+  final List<String> links;
   final ClassesOfSchool classesOfSchool;
   final CurriculaOfSchool curriculaOfSchool;
   final bool isArabicCurricula;
@@ -39,9 +44,8 @@ class Curricula {
     required this.id,
     required this.curricula,
     required this.image,
-    required this.title,
     required this.pdf,
-    required this.ingredients,
+    required this.links,
     required this.classesOfSchool,
     required this.curriculaOfSchool,
     required this.isArabicCurricula,
@@ -58,7 +62,6 @@ class Curricula {
 /*
 Curricula c1 = const Curricula(
   id: '',
-  title: '',
   curricula: [],
   image: '',
   pdf: '',

@@ -1,42 +1,21 @@
-import 'package:curricula_apple/models/providers/curricula_provider.dart';
+import 'package:curricula_apple/models/providers/language_provider.dart';
+
+import '../models/providers/curricula_provider.dart';
 import 'package:provider/provider.dart';
 
 import '../widgets/main_drawer.dart';
 import 'package:flutter/material.dart';
 
 class FiltersScreen extends StatefulWidget {
-  const FiltersScreen({Key? key}) : super(key: key);
+  final bool fromOnBoarding;
+  const FiltersScreen({Key? key, this.fromOnBoarding = false})
+      : super(key: key);
 
   @override
   _FiltersScreenState createState() => _FiltersScreenState();
 }
 
 class _FiltersScreenState extends State<FiltersScreen> {
-  // bool _arabic = false;
-  // bool _languages = false;
-  // bool _first = false;
-  // bool _second = false;
-  // bool _third = false;
-  // bool _fourth = false;
-  // bool _fifth = false;
-  // bool _sixth = false;
-
-  // @override
-  // initState() {
-  //   final Map<String, bool> currentFilters =
-  //       Provider.of<CurriculaProvider>(context, listen: false).filters;
-
-  //   _arabic = currentFilters['arabic']!;
-  //   _languages = currentFilters['languages']!;
-  //   _first = currentFilters['first']!;
-  //   _second = currentFilters['second']!;
-  //   _third = currentFilters['third']!;
-  //   _fourth = currentFilters['fourth']!;
-  //   _fifth = currentFilters['fifth']!;
-  //   _sixth = currentFilters['sixth']!;
-  //   super.initState();
-  // }
-
   Widget buildSwitchListTile(
     String title,
     String description,
@@ -55,121 +34,119 @@ class _FiltersScreenState extends State<FiltersScreen> {
   Widget build(BuildContext context) {
     final Map<String, bool> currentFilters =
         Provider.of<CurriculaProvider>(context, listen: true).filters;
+    LanguageProvider lan = Provider.of<LanguageProvider>(context, listen: true);
 
     return Scaffold(
-      appBar: AppBar(
-        title: const Text('Your Filters'),
-        centerTitle: true,
-        // actions: [
-        //   IconButton(
-        //     icon: const Icon(Icons.save),
-        //     onPressed: () {
-        //       final selectedFilters = {
-        //         'arabic': _arabic,
-        //         'languages': _languages,
-        //         'first': _first,
-        //         'second': _second,
-        //         'third': _third,
-        //         'fourth': _fourth,
-        //         'fifth': _fifth,
-        //         'sixth': _sixth,
-        //       };
-        //       Provider.of<CurriculaProvider>(context, listen: false)
-        //           .setFilters(selectedFilters);
-        //     },
-        //   ),
-        // ],
-      ),
-      body: Column(
-        children: [
-          Container(
-            padding: const EdgeInsets.all(20),
-            child: Text(
-              'Adjust your meal selection.',
-              style: Theme.of(context).textTheme.headline6,
-            ),
+      body: CustomScrollView(
+        slivers: [
+          SliverAppBar(
+            pinned: false,
+            title: widget.fromOnBoarding
+                ? null
+                : Text(lan.getTexts('filter').toString()),
+            backgroundColor: widget.fromOnBoarding
+                ? Theme.of(context).canvasColor
+                : Theme.of(context).primaryColor,
+            elevation: widget.fromOnBoarding ? 0 : 5,
           ),
-          Expanded(
-            child: ListView(
-              children: [
+          SliverList(
+            delegate: SliverChildListDelegate(
+              [
+                Container(
+                  padding: const EdgeInsets.all(20),
+                  child: Text(
+                    lan.getTexts('filters_screen_title').toString(),
+                    style: Theme.of(context).textTheme.headline6,
+                    textAlign: TextAlign.center,
+                  ),
+                ),
                 buildSwitchListTile(
-                  'Arabic',
-                  'Arabic Language',
+                  lan.getTexts('filter_title_arabic').toString(),
+                  lan.getTexts('filter_sub_title_arabic').toString(),
                   currentFilters['arabic']!,
                   (value) {
                     setState(() => currentFilters['arabic'] = value);
-                    Provider.of<CurriculaProvider>(context, listen: false).setFilters();
+                    Provider.of<CurriculaProvider>(context, listen: false)
+                        .setFilters();
                   },
                 ),
                 buildSwitchListTile(
-                  'Language',
-                  'English Language',
+                  lan.getTexts('filter_title_language').toString(),
+                  lan.getTexts('filter_sub_title_language').toString(),
                   currentFilters['languages']!,
                   (value) {
                     setState(() => currentFilters['languages'] = value);
-                    Provider.of<CurriculaProvider>(context, listen: false).setFilters();
+                    Provider.of<CurriculaProvider>(context, listen: false)
+                        .setFilters();
                   },
                 ),
                 buildSwitchListTile(
-                  'First',
-                  'First grade primary',
+                  lan.getTexts('classesOfSchool.firstGrade').toString(),
+                  lan.getTexts('filter_sub_title_first').toString(),
                   currentFilters['first']!,
                   (value) {
                     setState(() => currentFilters['first'] = value);
-                    Provider.of<CurriculaProvider>(context, listen: false).setFilters();
+                    Provider.of<CurriculaProvider>(context, listen: false)
+                        .setFilters();
                   },
                 ),
                 buildSwitchListTile(
-                  'Second',
-                  'Second grade primary',
+                  lan.getTexts('classesOfSchool.secondGrade').toString(),
+                  lan.getTexts('filter_sub_title_second').toString(),
                   currentFilters['second']!,
                   (value) {
                     setState(() => currentFilters['second'] = value);
-                    Provider.of<CurriculaProvider>(context, listen: false).setFilters();
+                    Provider.of<CurriculaProvider>(context, listen: false)
+                        .setFilters();
                   },
                 ),
                 buildSwitchListTile(
-                  'Third',
-                  'Third grade primary',
+                  lan.getTexts('classesOfSchool.thirdGrade').toString(),
+                  lan.getTexts('filter_sub_title_third').toString(),
                   currentFilters['third']!,
                   (value) {
                     setState(() => currentFilters['third'] = value);
-                    Provider.of<CurriculaProvider>(context, listen: false).setFilters();
+                    Provider.of<CurriculaProvider>(context, listen: false)
+                        .setFilters();
                   },
                 ),
                 buildSwitchListTile(
-                  'fourth',
-                  'Fourth grade primary',
+                  lan.getTexts('classesOfSchool.fourthGrade').toString(),
+                  lan.getTexts('filter_sub_title_fourth').toString(),
                   currentFilters['fourth']!,
                   (value) {
                     setState(() => currentFilters['fourth'] = value);
-                    Provider.of<CurriculaProvider>(context, listen: false).setFilters();
+                    Provider.of<CurriculaProvider>(context, listen: false)
+                        .setFilters();
                   },
                 ),
                 buildSwitchListTile(
-                  'Fifth',
-                  'Fifth grade primary',
+                  lan.getTexts('classesOfSchool.fifthGrade').toString(),
+                  lan.getTexts('filter_sub_title_fifth').toString(),
                   currentFilters['fifth']!,
                   (value) {
                     setState(() => currentFilters['fifth'] = value);
-                    Provider.of<CurriculaProvider>(context, listen: false).setFilters();
+                    Provider.of<CurriculaProvider>(context, listen: false)
+                        .setFilters();
                   },
                 ),
                 buildSwitchListTile(
-                  'Sixth',
-                  'Sixth grade primary',
+                  lan.getTexts('classesOfSchool.sixthGrade').toString(),
+                  lan.getTexts('filter_sub_title_Sixth').toString(),
                   currentFilters['sixth']!,
                   (value) {
                     setState(() => currentFilters['sixth'] = value);
-                    Provider.of<CurriculaProvider>(context, listen: false).setFilters();
+                    Provider.of<CurriculaProvider>(context, listen: false)
+                        .setFilters();
                   },
                 ),
+                SizedBox(height: widget.fromOnBoarding ? 80 : 0),
               ],
             ),
           ),
         ],
       ),
-      drawer: const MainDrawer(),
+      drawer: widget.fromOnBoarding ? null : const MainDrawer(),
     );
   }
 }

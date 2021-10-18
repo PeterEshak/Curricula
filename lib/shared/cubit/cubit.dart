@@ -2,7 +2,6 @@ import '../../modules/todo_modules/archived_tasks/archived_tasks_screen.dart';
 import '../../modules/todo_modules/done_tasks/done_tasks_screen.dart';
 import '../../modules/todo_modules/new_tasks/new_tasks_screen.dart';
 import 'states.dart';
-import '../network/local/cache_helper.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:sqflite/sqflite.dart';
@@ -128,7 +127,7 @@ class AppCubit extends Cubit<AppStates> {
   }
 
   // bool isDark = false;
-  String themeMode = 'system';
+/*   String themeMode = 'system';
   ThemeMode theme = ThemeMode.system;
 
   ThemeMode changeAppMode({String? fromShared}) {
@@ -160,7 +159,7 @@ class AppCubit extends Cubit<AppStates> {
     }
     return theme;
   }
-  // void changeAppMode({bool? fromShared}) {
+ */  // void changeAppMode({bool? fromShared}) {
   //   if (fromShared != null) {
   //     isDark = fromShared;
   //     emit(AppChangeModeState());

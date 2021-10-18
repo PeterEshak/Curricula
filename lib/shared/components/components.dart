@@ -1,4 +1,3 @@
-
 import 'package:curricula_apple/modules/login/login_screen.dart';
 
 import '../../modules/news_app/web_view/web_view_screen.dart';
@@ -511,8 +510,8 @@ Widget tasksBuilder({
 //     }
 //   }
 // }
-
-Widget myDivider() => Padding(
+Divider myDivider(double height) => Divider(height: height);
+Widget divider() => Padding(
       padding: const EdgeInsetsDirectional.only(start: 20.0),
       child: Container(
         width: double.infinity,
@@ -527,7 +526,7 @@ Widget articleBuilder(list, context, {isSearch = false}) => Container(
               physics: const BouncingScrollPhysics(),
               itemBuilder: (context, index) =>
                   buildArticleItem(list[index], context),
-              separatorBuilder: (context, index) => myDivider(),
+              separatorBuilder: (context, index) => divider(),
               itemCount: 15,
             )
           : isSearch

@@ -1,3 +1,6 @@
+import 'package:curricula_apple/models/providers/language_provider.dart';
+import 'package:provider/provider.dart';
+
 import '../../widgets/main_drawer.dart';
 import 'package:flutter/material.dart';
 import 'calculator_buttons.dart';
@@ -35,6 +38,7 @@ class _MyCalculatorState extends State<CalculatorMain> {
 
   @override
   Widget build(BuildContext context) {
+    LanguageProvider lan = Provider.of<LanguageProvider>(context, listen: true);
     return Scaffold(
       appBar: AppBar(
         shadowColor: Colors.blue[700],
@@ -45,7 +49,7 @@ class _MyCalculatorState extends State<CalculatorMain> {
         toolbarOpacity: 0.8,
         excludeHeaderSemantics: true,
 
-        title: const Text('الة حاسبه'),
+        title: Text(lan.getTexts('calculator').toString()),
         centerTitle: true,
         // leading: IconButton(
         //   icon: Icon(Icons.arrow_back_rounded),

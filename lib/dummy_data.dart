@@ -5,63 +5,51 @@ import './models/classes.dart';
 const dummyClasses = [
   Classes(
     id: 'ca1',
-    title: 'الصف الاول الابتدائي عربي',
     color: Colors.purple,
   ), //الصف الاول الابتدائي عربي
   Classes(
     id: 'ca2',
-    title: 'الصف الثاني الابتدائي عربي',
     color: Colors.red,
   ), //الصف الثاني الابتدائي عربي
   Classes(
     id: 'ca3',
-    title: 'الصف الثالث الابتدائي عربي',
     color: Colors.orange,
   ), //الصف الثالث الابتدائي عربي
   Classes(
     id: 'ca4',
-    title: 'الصف الرابع الابتدائي عربي',
     color: Colors.amber,
   ), //الصف الرابع الابتدائي عربي
   Classes(
     id: 'ca5',
-    title: 'الصف الخامس الابتدائي عربي',
     color: Colors.blue,
   ), //الصف الخامس الابتدائي عربي
   Classes(
     id: 'ca6',
-    title: 'الصف السادس الابتدائي عربي',
     color: Colors.green,
   ), //الصف السادس الابتدائي عربي
   ////////////////////////////////////////
   Classes(
     id: 'cl1',
-    title: 'الصف الاول الابتدائي لغات',
     color: Colors.purple,
   ), //الصف الاول الابتدائي لغات
   Classes(
     id: 'cl2',
-    title: 'الصف الثاني الابتدائي لغات',
     color: Colors.red,
   ), //الصف الثاني الابتدائي لغات
   Classes(
     id: 'cl3',
-    title: 'الصف الثالث الابتدائي لغات',
     color: Colors.orange,
   ), //الصف الثالث الابتدائي لغات
   Classes(
     id: 'cl4',
-    title: 'الصف الرابع الابتدائي لغات',
     color: Colors.amber,
   ), //الصف الرابع الابتدائي لغات
   Classes(
     id: 'cl5',
-    title: 'الصف الخامس الابتدائي لغات',
     color: Colors.blue,
   ), //الصف الخامس الابتدائي لغات
   Classes(
     id: 'cl6',
-    title: 'الصف السادس الابتدائي لغات',
     color: Colors.green,
   ), //الصف السادس الابتدائي لغات
 ];
@@ -74,7 +62,6 @@ const dummyCurricula = [
       'ca1',
       'cl1',
     ],
-    title: 'لغة عربي الصف الاول الابتدائي',
     image:
         'https://12354655136.000webhostapp.com/first_grade_image/arabic_1prim_t2_photo.jpg',
 
@@ -82,7 +69,7 @@ const dummyCurricula = [
         'https://12354655136.000webhostapp.com/first_grade_pdf/arabic_1prim_t2.pdf',
     classesOfSchool: ClassesOfSchool.firstGrade,
     curriculaOfSchool: CurriculaOfSchool.arabic,
-    ingredients: [
+    links: [
       'https://www.youtube.com/watch?v=S74TdvR3zGU&list=PLmO7YhDrrq7BrYlqxfGpswD1g2pzfuURf',
       'https://www.youtube.com/watch?v=Jz7wUSbUJC8&list=PL3jaAblAPiYoBv217h-LG3UsJq8ah79ax',
       'https://www.youtube.com/watch?v=A6goLXJUPU0&list=PLSceolq2C1zMzbiL3ZIXGkE-TKSn2IUZe',
@@ -106,12 +93,11 @@ const dummyCurricula = [
     ],
     image:
         'https://12354655136.000webhostapp.com/first_grade_image/english_1prim_t2_photo.jpg',
-    title: 'لغة انجليزية الصف الاول الابتدائي',
     pdf:
         'https://12354655136.000webhostapp.com/first_grade_pdf/english_1prim_t2.pdf',
     classesOfSchool: ClassesOfSchool.firstGrade,
     curriculaOfSchool: CurriculaOfSchool.english,
-    ingredients: [
+    links: [
       'https://www.youtube.com/watch?v=zFsmTC9xcus&list=PL3jaAblAPiYr6mukWoNbm-KQejmffTu8_',
     ],
     isArabicCurricula: true,
@@ -130,12 +116,11 @@ const dummyCurricula = [
     ],
     image:
         'https://12354655136.000webhostapp.com/first_grade_image/discover_1prim_t2_photo.jpg',
-    title: 'اكتشف بالعربي الصف الاول الابتدائي',
     pdf:
         'https://12354655136.000webhostapp.com/first_grade_pdf/discover_1prim_t2.pdf',
     classesOfSchool: ClassesOfSchool.firstGrade,
-    curriculaOfSchool: CurriculaOfSchool.mathInArabic,
-    ingredients: [
+    curriculaOfSchool: CurriculaOfSchool.actashfInArabic,
+    links: [
       'https://www.youtube.com/watch?v=S74TdvR3zGU&list=PLmO7YhDrrq7BrYlqxfGpswD1g2pzfuURf',
       'https://www.youtube.com/watch?v=SEpOxdopqoo&list=PLSceolq2C1zPTO7TCWkHpqu8CA01FzU-q',
     ],
@@ -155,12 +140,11 @@ const dummyCurricula = [
     ],
     image:
         'https://12354655136.000webhostapp.com/first_grade_image/dlscover_1prim_t2_e_photo.jpg',
-    title: 'اكتشف بالانجليزي الصف الاول الابتدائي',
     pdf:
         'https://12354655136.000webhostapp.com/first_grade_pdf/dlscover_1prim_t2_e.pdf',
     classesOfSchool: ClassesOfSchool.firstGrade,
-    curriculaOfSchool: CurriculaOfSchool.mathInEnglish,
-    ingredients: [],
+    curriculaOfSchool: CurriculaOfSchool.actashfInEnglish,
+    links: [],
     isArabicCurricula: false,
     isLanguagesCurricula: true,
     isFirstCurricula: true,
@@ -177,13 +161,11 @@ const dummyCurricula = [
       'cl1',
     ],
     image:
-        'https://12354655136.000webhostapp.com/first_grade_image/christian_1prim_t2_photo.jpg',
-    title: 'دين مسيحي الصف الاول الابتدائي',
-    pdf:
+        'https://12354655136.000webhostapp.com/first_grade_image/christian_1prim_t2_photo.jpg', pdf:
         'https://12354655136.000webhostapp.com/first_grade_pdf/christian_1prim_t2.pdf',
     classesOfSchool: ClassesOfSchool.firstGrade,
-    curriculaOfSchool: CurriculaOfSchool.mathInArabic,
-    ingredients: [],
+    curriculaOfSchool: CurriculaOfSchool.masehy,
+    links: [],
     isArabicCurricula: true,
     isLanguagesCurricula: true,
     isFirstCurricula: true,
@@ -201,12 +183,11 @@ const dummyCurricula = [
     ],
     image:
         'https://12354655136.000webhostapp.com/first_grade_image/islamy_1prim_t2_photo.jpg',
-    title: 'دين اسلامي الصف الاول الابتدائي',
     pdf:
         'https://12354655136.000webhostapp.com/first_grade_pdf/islamy_1prim_t2.pdf',
     classesOfSchool: ClassesOfSchool.firstGrade,
-    curriculaOfSchool: CurriculaOfSchool.mathInEnglish,
-    ingredients: [],
+    curriculaOfSchool: CurriculaOfSchool.moslim,
+    links: [],
     isArabicCurricula: true,
     isLanguagesCurricula: true,
     isFirstCurricula: true,
@@ -225,12 +206,11 @@ const dummyCurricula = [
     ],
     image:
         'https://12354655136.000webhostapp.com/second_grade_image/arabic_2prim_t2_photo.jpg',
-    title: 'لغة عربية الصف الثاني الابتدائي',
     pdf:
         'https://12354655136.000webhostapp.com/second_grade_pdf/arabic_2prim_t2.pdf',
     classesOfSchool: ClassesOfSchool.secondGrade,
     curriculaOfSchool: CurriculaOfSchool.arabic,
-    ingredients: [
+    links: [
       'https://www.youtube.com/watch?v=GK0FIyFiPa4&list=PLmO7YhDrrq7D6rNhDdStbMY9H0jD-lYWX',
       'https://www.youtube.com/watch?v=XXUAOf1pwz4&list=PLSceolq2C1zO98_D5NP8v5gLMkv3fXz-F',
       'https://www.youtube.com/watch?v=8w7JSfIRb4s&list=PLLW9ZBeGrw3GcQCDIZwDJyQYOl8bXKYjT',
@@ -252,12 +232,11 @@ const dummyCurricula = [
     ],
     image:
         'https://12354655136.000webhostapp.com/second_grade_image/english_2prim_t2_photo.jpg',
-    title: 'لغة انجليزية الصف الثاني الابتدائي',
     pdf:
         'https://12354655136.000webhostapp.com/second_grade_pdf/english_2prim_t2.pdf',
     classesOfSchool: ClassesOfSchool.secondGrade,
     curriculaOfSchool: CurriculaOfSchool.english,
-    ingredients: [
+    links: [
       'https://www.youtube.com/watch?v=ROma1eSaaAQ&list=PLSceolq2C1zMiAzw9GxKmDas9WlpzrDjm',
     ],
     isArabicCurricula: true,
@@ -276,11 +255,10 @@ const dummyCurricula = [
     ],
     image:
         'https://12354655136.000webhostapp.com/second_grade_image/math_2prim_t2_photo.jpg',
-    title: 'رياضة بالعربي الصف الثاني الابتدائي',
     pdf: 'https://12354655136.000webhostapp.com/second_grade_pdf/math_2prim_t2.pdf',
     classesOfSchool: ClassesOfSchool.secondGrade,
     curriculaOfSchool: CurriculaOfSchool.mathInArabic,
-    ingredients: [
+    links: [
       'https://www.youtube.com/watch?v=fVjorgblWyQ&list=PL3jaAblAPiYrWHUi-ecnZeSmQJhHsP3U7',
       'https://www.youtube.com/watch?v=h8BohDMsXgw&list=PLSceolq2C1zNMq7XFvn8bFUyP1YjDMeiZ',
       'https://www.youtube.com/watch?v=e-_TY4_mNHA&list=PLLW9ZBeGrw3HP2xY6ZgVqAwuLPb4NWA6r',
@@ -301,11 +279,10 @@ const dummyCurricula = [
     ],
     image:
         'https://12354655136.000webhostapp.com/second_grade_image/math_2prim_t2_e_photo.jpg',
-    title: 'رياضة بالانجليزي الصف الثاني الابتدائي',
     pdf: 'https://12354655136.000webhostapp.com/second_grade_pdf/math_2prim_t2_e.pdf',
     classesOfSchool: ClassesOfSchool.secondGrade,
     curriculaOfSchool: CurriculaOfSchool.mathInEnglish,
-    ingredients: [],
+    links: [],
     isArabicCurricula: false,
     isLanguagesCurricula: true,
     isFirstCurricula: false,
@@ -322,11 +299,10 @@ const dummyCurricula = [
     ],
     image:
         'https://12354655136.000webhostapp.com/second_grade_image/dlscove_2prim_t2_photo.jpg',
-    title: 'اكتشف بالعربي الصف الثاني الابتدائي',
     pdf: 'https://12354655136.000webhostapp.com/second_grade_pdf/dlscove_2prim_t2.pdf',
     classesOfSchool: ClassesOfSchool.secondGrade,
-    curriculaOfSchool: CurriculaOfSchool.mathInArabic,
-    ingredients: [
+    curriculaOfSchool: CurriculaOfSchool.actashfInArabic,
+    links: [
       'https://www.youtube.com/watch?v=GK0FIyFiPa4&list=PLmO7YhDrrq7D6rNhDdStbMY9H0jD-lYWX',
     ],
     isArabicCurricula: true,
@@ -345,11 +321,10 @@ const dummyCurricula = [
     ],
     image:
         'https://12354655136.000webhostapp.com/second_grade_image/dlscove_2prim_t2_e_photo.jpg',
-    title: 'اكتشف بالانجليزي الصف الثاني الابتدائي',
     pdf: 'https://12354655136.000webhostapp.com/second_grade_pdf/dlscove_2prim_t2_e.pdf',
     classesOfSchool: ClassesOfSchool.secondGrade,
-    curriculaOfSchool: CurriculaOfSchool.mathInEnglish,
-    ingredients: [],
+    curriculaOfSchool: CurriculaOfSchool.actashfInEnglish,
+    links: [],
     isArabicCurricula: false,
     isLanguagesCurricula: true,
     isFirstCurricula: false,
@@ -367,11 +342,10 @@ const dummyCurricula = [
     ],
     image:
         'https://12354655136.000webhostapp.com/second_grade_image/islamy_2prim_t2_photo.jpg',
-    title: 'دين اسلامي الصف الثاني الابتدائي',
     pdf: 'https://12354655136.000webhostapp.com/second_grade_pdf/islamy_2prim_t2.pdf',
     classesOfSchool: ClassesOfSchool.secondGrade,
-    curriculaOfSchool: CurriculaOfSchool.mathInEnglish,
-    ingredients: [],
+    curriculaOfSchool: CurriculaOfSchool.masehy,
+    links: [],
     isArabicCurricula: true,
     isLanguagesCurricula: true,
     isFirstCurricula: false,
@@ -390,11 +364,10 @@ const dummyCurricula = [
     ],
     image:
         'https://12354655136.000webhostapp.com/third_grade_image/arabic_3prim_t2_photo.jpg',
-    title: 'لغة عربية الصف الثالث الابتدائي',
     pdf: 'https://12354655136.000webhostapp.com/third_grade_pdf/arabic_3prim_t2.pdf',
     classesOfSchool: ClassesOfSchool.thirdGrade,
     curriculaOfSchool: CurriculaOfSchool.arabic,
-    ingredients: [
+    links: [
       'https://www.youtube.com/watch?v=p3yJKSa5Qqk&list=PLmO7YhDrrq7ClF4l171pviqAA4UJwTj8w',
       'https://www.youtube.com/watch?v=HvjveKILsGM&list=PL3jaAblAPiYqwAfraAacveHAyBWR2wL8H',
       'https://www.youtube.com/watch?v=c_ocQC3Frno&list=PLSceolq2C1zPXYeMHJtawKZh8imOowAXM',
@@ -418,11 +391,10 @@ const dummyCurricula = [
     ],
     image:
         'https://12354655136.000webhostapp.com/third_grade_image/english_3prim_t2_photo.jpg',
-    title: 'لغة انجليزية الصف الثالث الابتدائي',
     pdf: 'https://984654896351.000webhostapp.com/third_grade_pdf/english_3prim_t2.pdf',
     classesOfSchool: ClassesOfSchool.thirdGrade,
     curriculaOfSchool: CurriculaOfSchool.english,
-    ingredients: [
+    links: [
       'https://www.youtube.com/watch?v=cpZCDber0Vw&list=PLSceolq2C1zOMv6jn-_l_VaFGzG7jNOLr',
     ],
     isArabicCurricula: true,
@@ -441,11 +413,10 @@ const dummyCurricula = [
     ],
     image:
         'https://12354655136.000webhostapp.com/third_grade_image/math_3prim_t2_photo.jpg',
-    title: 'رياضة بالعربي الصف الثالث الابتدائي',
     pdf: 'https://12354655136.000webhostapp.com/third_grade_pdf/math_3prim_t2.pdf',
     classesOfSchool: ClassesOfSchool.thirdGrade,
     curriculaOfSchool: CurriculaOfSchool.mathInArabic,
-    ingredients: [
+    links: [
       'https://www.youtube.com/watch?v=7XU3cy7B4A0&list=PL3jaAblAPiYpunxfacsRKeHNYxbrOkf6Y',
       'https://www.youtube.com/watch?v=4lswYdcu_gU&list=PLSceolq2C1zPweo5fWqInSQsIsTqo5V4M',
       'https://www.youtube.com/watch?v=HcfvqqIyu9o&list=PLLW9ZBeGrw3GBCw_g4-jtsaxvjW6XFXdn',
@@ -466,11 +437,10 @@ const dummyCurricula = [
     ],
     image:
         'https://12354655136.000webhostapp.com/third_grade_image/math_3prim_t2_e_photo.jpg',
-    title: 'رياضة بالانجليزي الصف الثالث الابتدائي',
     pdf: 'https://12354655136.000webhostapp.com/third_grade_pdf/math_3prim_t2_e.pdf',
     classesOfSchool: ClassesOfSchool.thirdGrade,
     curriculaOfSchool: CurriculaOfSchool.mathInEnglish,
-    ingredients: [
+    links: [
       'https://www.youtube.com/watch?v=VMsO2HV0EPg&list=PL3jaAblAPiYqvXx0ynCyqLsLh3KQnQ3Co',
     ],
     isArabicCurricula: false,
@@ -489,11 +459,10 @@ const dummyCurricula = [
     ],
     image:
         'https://12354655136.000webhostapp.com/third_grade_image/discover_3prim_t2_photo.jpg',
-    title: 'اكتشف بالعربي الصف الثالث الابتدائي',
     pdf: 'https://984654896351.000webhostapp.com/third_grade_pdf/discover_3prim_t2.pdf',
     classesOfSchool: ClassesOfSchool.thirdGrade,
-    curriculaOfSchool: CurriculaOfSchool.english,
-    ingredients: [
+    curriculaOfSchool: CurriculaOfSchool.actashfInArabic,
+    links: [
       'https://www.youtube.com/watch?v=p3yJKSa5Qqk&list=PLmO7YhDrrq7ClF4l171pviqAA4UJwTj8w',
       'https://www.youtube.com/watch?v=_nxlijLkogA&list=PLSceolq2C1zORAQuCWLSi54cfXU9m1G97',
     ],
@@ -514,11 +483,10 @@ const dummyCurricula = [
     ],
     image:
         'https://12354655136.000webhostapp.com/third_grade_image/christian_3prim_t2_photo.jpg',
-    title: 'دين مسيحي الصف الثالث الابتدائي',
     pdf: 'https://984654896351.000webhostapp.com/third_grade_pdf/christian_3prim_t2.pdf',
     classesOfSchool: ClassesOfSchool.thirdGrade,
-    curriculaOfSchool: CurriculaOfSchool.mathInArabic,
-    ingredients: [],
+    curriculaOfSchool: CurriculaOfSchool.masehy,
+    links: [],
     isArabicCurricula: true,
     isLanguagesCurricula: true,
     isFirstCurricula: false,
@@ -536,11 +504,10 @@ const dummyCurricula = [
     ],
     image:
         'https://12354655136.000webhostapp.com/third_grade_image/islamy_3prim_t2_photo.jpg',
-    title: 'دين اسلامي الصف الثالث الابتدائي',
     pdf: 'https://12354655136.000webhostapp.com/third_grade_pdf/islamy_3prim_t2.pdf',
     classesOfSchool: ClassesOfSchool.thirdGrade,
-    curriculaOfSchool: CurriculaOfSchool.mathInEnglish,
-    ingredients: [
+    curriculaOfSchool: CurriculaOfSchool.moslim,
+    links: [
       'https://www.youtube.com/watch?v=FGvJC__imyQ&list=PLSceolq2C1zNKKVyDeKSube789tF3vEf8',
     ],
     isArabicCurricula: true,
@@ -561,11 +528,10 @@ const dummyCurricula = [
     ],
     image:
         'https://12354655136.000webhostapp.com/fourth_grade_image/arabic_4prim_t2_photo.jpg',
-    title: 'لغة عربية الصف الرابع الابتدائي',
     pdf: 'https://984654896351.000webhostapp.com/fourth_grade_pdf/arabic_4prim_t2.pdf',
     classesOfSchool: ClassesOfSchool.fourthGrade,
     curriculaOfSchool: CurriculaOfSchool.arabic,
-    ingredients: [
+    links: [
       'https://www.youtube.com/watch?v=CDqK6M1XN3g&list=PLZpdfXc71P-TyX0AufowHqm2xckiC0of4',
       'https://www.youtube.com/watch?v=Qs_B3vITKhU&list=PLmO7YhDrrq7A8C1QUkzZ94ocr32XhgHzR',
       'https://www.youtube.com/watch?v=prWqC2tR_FQ&list=PL3jaAblAPiYppTfdnYTEGhgt2rYKPwmWB'
@@ -587,11 +553,10 @@ const dummyCurricula = [
     ],
     image:
         'https://12354655136.000webhostapp.com/fourth_grade_image/english_4prim_t2_photo.jpg',
-    title: 'لغة انجليزية الصف الرابع الابتدائي',
     pdf: 'https://984654896351.000webhostapp.com/fourth_grade_pdf/english_4prim_t2.pdf',
     classesOfSchool: ClassesOfSchool.fourthGrade,
     curriculaOfSchool: CurriculaOfSchool.english,
-    ingredients: [
+    links: [
       'https://www.youtube.com/watch?v=_baoXFro-tQ&list=PLZpdfXc71P-ToI1Vz4_gRKCukBDkcwWym',
     ],
     isArabicCurricula: true,
@@ -610,11 +575,10 @@ const dummyCurricula = [
     ],
     image:
         'https://12354655136.000webhostapp.com/fourth_grade_image/math_4prim_t2_photo.jpg',
-    title: 'رياضة بالعربي الصف الرابع الابتدائي',
     pdf: 'https://984654896351.000webhostapp.com/fourth_grade_pdf/math_4prim_t2.pdf',
     classesOfSchool: ClassesOfSchool.fourthGrade,
     curriculaOfSchool: CurriculaOfSchool.mathInArabic,
-    ingredients: [
+    links: [
       'https://www.youtube.com/watch?v=yuJ7418x_bA&list=PLZpdfXc71P-QXIYQ8yU3jOcgi4ee9Df0P',
       'https://www.youtube.com/watch?v=4XiGRwt_rF4&list=PL3jaAblAPiYrz1wo969OxJigLl1mSnvbT'
     ],
@@ -634,11 +598,10 @@ const dummyCurricula = [
     ],
     image:
         'https://12354655136.000webhostapp.com/fourth_grade_image/science_4prim_t2_photo.jpg',
-    title: 'علوم بالعربي الصف الرابع الابتدائي',
     pdf: 'https://984654896351.000webhostapp.com/fourth_grade_pdf/science_4prim_t2.pdf',
     classesOfSchool: ClassesOfSchool.fourthGrade,
     curriculaOfSchool: CurriculaOfSchool.scienceInArabic,
-    ingredients: [
+    links: [
       'https://www.youtube.com/watch?v=9hkGrJ3enCQ&list=PLZpdfXc71P-QvTNGkIJB2amBaODCj9Wn2',
     ],
     isArabicCurricula: true,
@@ -657,11 +620,10 @@ const dummyCurricula = [
     ],
     image:
         'https://12354655136.000webhostapp.com/fourth_grade_image/science_4prim_t2_e_photo.jpg',
-    title: 'علوم بالانجليزي الصف الرابع الابتدائي',
     pdf: 'https://984654896351.000webhostapp.com/fourth_grade_pdf/science_4prim_t2_e.pdf',
     classesOfSchool: ClassesOfSchool.fourthGrade,
     curriculaOfSchool: CurriculaOfSchool.scienceInEnglish,
-    ingredients: [
+    links: [
       'https://www.youtube.com/watch?v=XuQ_Y3z-wNM&list=PLZpdfXc71P-SKcCO0su7H73QLzJQIP-Dt',
       'https://www.youtube.com/watch?v=nAJjgNPU-p0&list=PL3jaAblAPiYrdF_BNaGLcRF_I9oEsPCVF'
     ],
@@ -682,11 +644,10 @@ const dummyCurricula = [
     ],
     image:
         'https://12354655136.000webhostapp.com/fourth_grade_image/drasat_4prim_t1_t2_sb_wb_photo.jpg',
-    title: 'دراسات الصف الرابع الابتدائي',
     pdf: 'https://984654896351.000webhostapp.com/fourth_grade_pdf/drasat_4prim_t1_t2_sb_wb.pdf',
     classesOfSchool: ClassesOfSchool.fourthGrade,
     curriculaOfSchool: CurriculaOfSchool.socialStudies,
-    ingredients: [
+    links: [
       'https://www.youtube.com/watch?v=Fv_afP71erU&list=PLZpdfXc71P-QgCyVp2RFstrj_av7OYeIT',
     ],
     isArabicCurricula: true,
@@ -706,11 +667,10 @@ const dummyCurricula = [
     ],
     image:
         'https://12354655136.000webhostapp.com/fourth_grade_image/islamy_4prim_t1_photo.jpg',
-    title: 'دين اسلامي الصف الرابع الابتدائي',
     pdf: 'https://984654896351.000webhostapp.com/fourth_grade_pdf/islamy_4prim_t1.pdf',
     classesOfSchool: ClassesOfSchool.fourthGrade,
-    curriculaOfSchool: CurriculaOfSchool.mathInEnglish,
-    ingredients: [],
+    curriculaOfSchool: CurriculaOfSchool.moslim,
+    links: [],
     isArabicCurricula: true,
     isLanguagesCurricula: true,
     isFirstCurricula: false,
@@ -729,11 +689,10 @@ const dummyCurricula = [
     ],
     image:
         'https://12354655136.000webhostapp.com/fifth_grade_image/arabic_5prim_t2_photo.jpg',
-    title: 'لغة عربية الصف الخامس الابتدائي',
     pdf: 'https://984654896351.000webhostapp.com/fifth_grade_image/arabic_5prim_t2.pdf',
     classesOfSchool: ClassesOfSchool.fifthGrade,
     curriculaOfSchool: CurriculaOfSchool.arabic,
-    ingredients: [
+    links: [
       'https://www.youtube.com/watch?v=wQTXMX2sEsA&list=PLZpdfXc71P-Q4x63odmmHzcdPayKuMTSG',
       'https://www.youtube.com/watch?v=nvedh0DgVy0&list=PLmO7YhDrrq7DJqcfF77q7Wvb2Pp7e3HS7',
       'https://www.youtube.com/watch?v=WVMjINxmTkI&list=PL3jaAblAPiYrqsXrszxNTMt5t9kr9sRAp'
@@ -755,11 +714,10 @@ const dummyCurricula = [
     ],
     image:
         'https://12354655136.000webhostapp.com/fifth_grade_image/english_5prim_t2_photo.jpg',
-    title: 'لغة انجليزية الصف الخامس الابتدائي',
     pdf: 'https://984654896351.000webhostapp.com/fifth_grade_image/english_5prim_t2.pdf',
     classesOfSchool: ClassesOfSchool.fifthGrade,
     curriculaOfSchool: CurriculaOfSchool.english,
-    ingredients: [
+    links: [
       'https://www.youtube.com/watch?v=R2laxd8aJOs&list=PLZpdfXc71P-RnChKTb08H_iY_msPijAfi',
       'https://www.youtube.com/watch?v=smGKZ2rGuGA&list=PL3jaAblAPiYpkBP6801FB1IKEkub2shBc'
     ],
@@ -779,11 +737,10 @@ const dummyCurricula = [
     ],
     image:
         'https://12354655136.000webhostapp.com/fifth_grade_image/math_5prim_t2_photo.jpg',
-    title: 'رياضة بالعربي الصف الخامس الابتدائي',
     pdf: 'https://984654896351.000webhostapp.com/fifth_grade_image/math_5prim_t2.pdf',
     classesOfSchool: ClassesOfSchool.fifthGrade,
     curriculaOfSchool: CurriculaOfSchool.mathInArabic,
-    ingredients: [
+    links: [
       'https://www.youtube.com/watch?v=hV6e8wi22Qk&list=PLZpdfXc71P-ToQwCRqGo8ugjpCdLUaz-O',
       'https://www.youtube.com/watch?v=pWPf7hWjnro&list=PL3jaAblAPiYpMu8sD5D-bdtdrx_49ACEx'
     ],
@@ -803,11 +760,10 @@ const dummyCurricula = [
     ],
     image:
         'https://12354655136.000webhostapp.com/fifth_grade_image/math_5prim_t2_e_photo.jpg',
-    title: 'رياضة بالانجليزي الصف الخامس الابتدائي',
     pdf: 'https://984654896351.000webhostapp.com/fifth_grade_image/math_5prim_t2_e.pdf',
     classesOfSchool: ClassesOfSchool.fifthGrade,
     curriculaOfSchool: CurriculaOfSchool.mathInEnglish,
-    ingredients: [
+    links: [
       'https://www.youtube.com/watch?v=qt07CDUZjlk&list=PLZpdfXc71P-S967jGQE15yEsB43yphYyg',
       'https://www.youtube.com/watch?v=t--zzPdMTmU&list=PL3jaAblAPiYpanG6s0QvwLIPpb5fSDV_d',
     ],
@@ -827,11 +783,10 @@ const dummyCurricula = [
     ],
     image:
         'https://12354655136.000webhostapp.com/fifth_grade_image/science_5prim_t2_photo.jpg',
-    title: 'علوم بالعربي الصف الخامس الابتدائي',
     pdf: 'https://984654896351.000webhostapp.com/fifth_grade_image/science_5prim_t2.pdf',
     classesOfSchool: ClassesOfSchool.fifthGrade,
     curriculaOfSchool: CurriculaOfSchool.scienceInArabic,
-    ingredients: [
+    links: [
       'https://www.youtube.com/watch?v=dtK9FXvtPwg&list=PLZpdfXc71P-QXKsUTgHL3x1qRaotabkWX',
       'https://www.youtube.com/watch?v=ItVNbWWTNk0&list=PL3jaAblAPiYocRys5rH-ThY7FQNu6kHsb',
       'https://www.youtube.com/watch?v=d75X5mfx8Kw&list=PL3jaAblAPiYrceZQd0lBjRpv1RTwuced4'
@@ -852,11 +807,10 @@ const dummyCurricula = [
     ],
     image:
         'https://12354655136.000webhostapp.com/fifth_grade_image/science_5prim_t2_e_photo.jpg',
-    title: 'علوم بالانجليزي الصف الخامس الابتدائي',
     pdf: 'https://984654896351.000webhostapp.com/fifth_grade_image/science_5prim_t2_e.pdf',
     classesOfSchool: ClassesOfSchool.fifthGrade,
     curriculaOfSchool: CurriculaOfSchool.scienceInEnglish,
-    ingredients: [
+    links: [
       'https://www.youtube.com/watch?v=RCUqG9vfsdM&list=PLZpdfXc71P-QforQi13O5v7fgdryDThao',
       'https://www.youtube.com/watch?v=oz14TgMkjlE&list=PL3jaAblAPiYoZo6L5kSLp0PxOZ30jhLRI'
     ],
@@ -877,11 +831,10 @@ const dummyCurricula = [
     ],
     image:
         'https://12354655136.000webhostapp.com/fifth_grade_image/story_5prim_photo.jpg',
-    title: 'قصة عربي الصف الخامس الابتدائي',
     pdf: 'https://984654896351.000webhostapp.com/fifth_grade_image/story_5prim.pdf',
     classesOfSchool: ClassesOfSchool.fifthGrade,
-    curriculaOfSchool: CurriculaOfSchool.socialStudies,
-    ingredients: [
+    curriculaOfSchool: CurriculaOfSchool.story,
+    links: [
       'https://www.youtube.com/watch?v=jNiLu12plb0&list=PLmO7YhDrrq7CIU1Mh-x0Jim3KT4G-CzlH',
     ],
     isArabicCurricula: true,
@@ -901,11 +854,10 @@ const dummyCurricula = [
     ],
     image:
         'https://12354655136.000webhostapp.com/fifth_grade_image/ibn_aof_5prim_photo.jpg',
-    title: 'قصة اسلامي الصف الخامس الابتدائي',
     pdf: 'https://984654896351.000webhostapp.com/fifth_grade_image/ibn_aof_5prim.pdf',
     classesOfSchool: ClassesOfSchool.fifthGrade,
-    curriculaOfSchool: CurriculaOfSchool.socialStudies,
-    ingredients: [],
+    curriculaOfSchool: CurriculaOfSchool.storyInIslam,
+    links: [],
     isArabicCurricula: true,
     isLanguagesCurricula: true,
     isFirstCurricula: false,
@@ -924,11 +876,10 @@ const dummyCurricula = [
     ],
     image:
         'https://12354655136.000webhostapp.com/sixth_grade_image/arabic_6prim_t2_photo.jpg',
-    title: 'لغة عربية الصف السادس الابتدائي',
     pdf: 'https://984654896351.000webhostapp.com/sixth_grade/arabic_6prim_t2.pdf',
     classesOfSchool: ClassesOfSchool.sixthGrade,
     curriculaOfSchool: CurriculaOfSchool.arabic,
-    ingredients: [
+    links: [
       'https://www.youtube.com/watch?v=vY8gYPKeG2k&list=PLZpdfXc71P-TTntb4NT1LxgWgiJ52Pi-D',
       'https://www.youtube.com/watch?v=Gw4VkgZyVoI&list=PLmO7YhDrrq7Au10oCbAXRqRgwoUSwte8p',
       'https://www.youtube.com/watch?v=_-fy0fvV0-I&list=PL3jaAblAPiYojgCX7DgoosxAb4Q9zd23i',
@@ -951,11 +902,10 @@ const dummyCurricula = [
     ],
     image:
         'https://12354655136.000webhostapp.com/sixth_grade_image/english_6prim_t2_photo.jpg',
-    title: 'لغة انجليزية الصف السادس الابتدائي',
     pdf: 'https://984654896351.000webhostapp.com/sixth_grade/english_6prim_t2.pdf',
     classesOfSchool: ClassesOfSchool.sixthGrade,
     curriculaOfSchool: CurriculaOfSchool.english,
-    ingredients: [
+    links: [
       'https://www.youtube.com/watch?v=RBrRAb8rtwI&list=PLZpdfXc71P-THkXrdZgiX1GFRpiBLd-FT',
       'https://www.youtube.com/watch?v=SNWznb01YRA&list=PL3jaAblAPiYp9Pfx3uKfxbakcWaSzJoa2',
     ],
@@ -975,11 +925,10 @@ const dummyCurricula = [
     ],
     image:
         'https://12354655136.000webhostapp.com/sixth_grade_image/math_6prim_t2_photo.jpg',
-    title: 'رياضة بالعربي الصف السادس الابتدائي',
     pdf: 'https://984654896351.000webhostapp.com/sixth_grade/math_6prim_t2.pdf',
     classesOfSchool: ClassesOfSchool.sixthGrade,
     curriculaOfSchool: CurriculaOfSchool.mathInArabic,
-    ingredients: [
+    links: [
       'https://www.youtube.com/watch?v=RUPtQGAew1s&list=PLZpdfXc71P-TNXxcD4i7Ho9r6ReEiqXU6',
       'https://www.youtube.com/watch?v=iV1D6L9T4qM&list=PL3jaAblAPiYojNIsll0WiUzXTgyrdIgJY',
     ],
@@ -999,11 +948,10 @@ const dummyCurricula = [
     ],
     image:
         'https://12354655136.000webhostapp.com/sixth_grade_image/math_6prim_t2_e_photo.jpg',
-    title: 'رياضة بالانجليزي الصف السادس الابتدائي',
     pdf: 'https://984654896351.000webhostapp.com/sixth_grade/math_6prim_t2_e.pdf',
     classesOfSchool: ClassesOfSchool.sixthGrade,
     curriculaOfSchool: CurriculaOfSchool.mathInEnglish,
-    ingredients: [
+    links: [
       'https://www.youtube.com/watch?v=FRD1YmV55IY&list=PLZpdfXc71P-Qha8Y2bocKNUTD6Mq4wGfk',
       'https://www.youtube.com/watch?v=ECJRVhWk0EU&list=PL3jaAblAPiYoUDAsk0uzdl4LNInTS2QmT',
     ],
@@ -1023,11 +971,10 @@ const dummyCurricula = [
     ],
     image:
         'https://12354655136.000webhostapp.com/sixth_grade_image/science_6prim_t2_photo.jpg',
-    title: 'علوم بالعربي الصف السادس الابتدائي',
     pdf: 'https://984654896351.000webhostapp.com/sixth_grade/science_6prim_t2.pdf',
     classesOfSchool: ClassesOfSchool.sixthGrade,
     curriculaOfSchool: CurriculaOfSchool.scienceInArabic,
-    ingredients: [
+    links: [
       'https://www.youtube.com/watch?v=hX9LluoBotk&list=PLZpdfXc71P-RJ2EMd0yAJVVDy7PwUoDar',
       'https://www.youtube.com/watch?v=HYkYO7seok0&list=PL3jaAblAPiYqcEVqEXytt4KSqs7MCJlLL',
     ],
@@ -1048,11 +995,10 @@ const dummyCurricula = [
     ],
     image:
         'https://12354655136.000webhostapp.com/sixth_grade_image/drasat_6prim_t2_photo.jpg',
-    title: 'دراسات الصف السادس الابتدائي',
     pdf: 'https://984654896351.000webhostapp.com/sixth_grade/drasat_6prim_t2.pdf',
     classesOfSchool: ClassesOfSchool.sixthGrade,
     curriculaOfSchool: CurriculaOfSchool.socialStudies,
-    ingredients: [
+    links: [
       'https://www.youtube.com/watch?v=v6nWHmwayrw&list=PLZpdfXc71P-TAVlOciXJx_Ga8GsNZO27w',
       'https://www.youtube.com/watch?v=KvkR9euXMHA&list=PL3jaAblAPiYrob3Cvemn8eF5Woyn3D3Qq',
       'https://www.youtube.com/watch?v=6AwdxJdJxJg&list=PL3jaAblAPiYrFCQ22w6TxHUxkmO04nm1m',
@@ -1074,11 +1020,10 @@ const dummyCurricula = [
     ],
     image:
         'https://12354655136.000webhostapp.com/sixth_grade_image/story_6prim_photo.jpg',
-    title: 'قصة عربي الصف السادس الابتدائي',
     pdf: 'https://984654896351.000webhostapp.com/sixth_grade/story_6prim.pdf',
     classesOfSchool: ClassesOfSchool.sixthGrade,
-    curriculaOfSchool: CurriculaOfSchool.mathInEnglish,
-    ingredients: [
+    curriculaOfSchool: CurriculaOfSchool.story,
+    links: [
       'https://www.youtube.com/watch?v=wU_-uXTfsys&list=PLmO7YhDrrq7AKsWgLOGWHN9otdDlGfGd0',
     ],
     isArabicCurricula: true,
@@ -1098,11 +1043,10 @@ const dummyCurricula = [
     ],
     image:
         'https://12354655136.000webhostapp.com/sixth_grade_image/story_islamy_6prim_photo.jpg',
-    title: 'قصة اسلامي الصف السادس الابتدائي',
     pdf: 'https://984654896351.000webhostapp.com/sixth_grade/story_islamy_6prim.pdf',
     classesOfSchool: ClassesOfSchool.sixthGrade,
-    curriculaOfSchool: CurriculaOfSchool.mathInEnglish,
-    ingredients: [],
+    curriculaOfSchool: CurriculaOfSchool.storyInIslam,
+    links: [],
     isArabicCurricula: true,
     isLanguagesCurricula: true,
     isFirstCurricula: false,

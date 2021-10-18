@@ -1,5 +1,4 @@
 import 'package:curricula_apple/models/providers/theme_provider.dart';
-import 'package:curricula_apple/shared/cubit/cubit.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:hexcolor/hexcolor.dart';
@@ -7,11 +6,11 @@ import 'package:provider/provider.dart';
 
 import 'colors.dart';
 
-BuildContext? context;
+late BuildContext context;
 ThemeData darkTheme = ThemeData(
-  primarySwatch: Provider.of<ThemeProvider>(context!).primaryColor,
+  primarySwatch: Provider.of<ThemeProvider>(context).primaryColor,
   colorScheme: ColorScheme.dark(
-      secondary: Provider.of<ThemeProvider>(context!).accentColor),
+      secondary: Provider.of<ThemeProvider>(context).accentColor),
   visualDensity: VisualDensity.adaptivePlatformDensity,
   platform: TargetPlatform.android,
   unselectedWidgetColor: Colors.white,
@@ -88,9 +87,9 @@ ThemeData darkTheme = ThemeData(
 );
 
 ThemeData lightTheme = ThemeData(
-  primarySwatch: Provider.of<ThemeProvider>(context!).primaryColor,
+  primarySwatch: Provider.of<ThemeProvider>(context).primaryColor,
   colorScheme: ColorScheme.light(
-      secondary: Provider.of<ThemeProvider>(context!).accentColor),
+      secondary: Provider.of<ThemeProvider>(context).accentColor),
   visualDensity: VisualDensity.adaptivePlatformDensity,
   platform: TargetPlatform.android,
   scaffoldBackgroundColor: Colors.white,

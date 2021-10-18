@@ -1,4 +1,5 @@
 import 'package:curricula_apple/models/providers/curricula_provider.dart';
+import 'package:curricula_apple/models/providers/language_provider.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:url_launcher/url_launcher.dart';
@@ -15,7 +16,6 @@ class CurriculaDetailScreen extends StatefulWidget {
 }
 
 class _CurriculaDetailScreenState extends State<CurriculaDetailScreen> {
-  String urlText = 'افتح الشرح';
   Future<void>? launched;
 
   Future<void> _launchInBrowser(String url) async {
@@ -33,120 +33,132 @@ class _CurriculaDetailScreenState extends State<CurriculaDetailScreen> {
 
   Widget buildSectionTitle(BuildContext ctx, String text) => Container(
         margin: const EdgeInsets.symmetric(vertical: 10),
-        child: Text(text, style: Theme.of(ctx).textTheme.headline6),
+        child: Text(
+          text,
+          style: Theme.of(ctx).textTheme.headline6,
+          textAlign: TextAlign.center,
+        ),
       );
 
-  Widget buildContainer(Widget child) => Container(
-        decoration: BoxDecoration(
-          color: Colors.white,
-          border: Border.all(color: Colors.grey),
-          borderRadius: BorderRadius.circular(10),
-        ),
-        margin: const EdgeInsets.all(10),
-        padding: const EdgeInsets.all(10),
-        height: 150,
-        width: 300,
-        child: child,
-      );
+  Widget buildContainer(Widget child) {
+    bool isLandscape =
+        MediaQuery.of(context).orientation == Orientation.landscape;
+    double dw = MediaQuery.of(context).size.width;
+    double dh = MediaQuery.of(context).size.height;
+    return Container(
+      decoration: BoxDecoration(
+        color: Colors.white,
+        border: Border.all(color: Colors.grey),
+        borderRadius: BorderRadius.circular(10),
+      ),
+      margin: const EdgeInsets.all(10),
+      padding: const EdgeInsets.all(10),
+      height: isLandscape ? dh * .5 : dh * .25,
+      width: isLandscape ? (dw * 0.5 - 2 * 0) : dw,
+      child: child,
+    );
+  }
 
   @override
   Widget build(BuildContext context) {
+    LanguageProvider lan = Provider.of<LanguageProvider>(context, listen: true);
     final curriculaId = ModalRoute.of(context)!.settings.arguments as String;
     final selectedCurricula =
         dummyCurricula.firstWhere((curricula) => curricula.id == curriculaId);
     return Scaffold(
-      appBar: AppBar(
-        title: Text(selectedCurricula.title),
-        centerTitle: true,
-      ),
-      body: SingleChildScrollView(
-        child: Column(
-          children: [
-            SizedBox(
-              height: 300,
-              width: double.infinity,
-              child: Image.network(
-                selectedCurricula.image,
-                loadingBuilder: (BuildContext context, Widget child,
-                    ImageChunkEvent? loadingProgress) {
-                  if (loadingProgress == null) {
-                    return child;
-                  }
-                  return Center(
-                    child: CircularProgressIndicator(
-                      value: loadingProgress.expectedTotalBytes != null
-                          ? loadingProgress.cumulativeBytesLoaded /
-                              loadingProgress.expectedTotalBytes!
-                          : null,
-                    ),
-                  );
-                },
-                errorBuilder: (BuildContext context, Object exception,
-                    StackTrace? stackTrace) {
-                  dynamic myAnalytics;
-                  myAnalytics.recordError(
-                    'An error occurred loading "${selectedCurricula.image}"',
-                    exception,
-                    stackTrace,
-                  );
-                  return const Text('😢');
-                },
-              ),
-            ),
-            //urlLunch(context),
-            if (selectedCurricula.ingredients.isEmpty)
-              Text(
-                'لا يوجد فديوهات شرح لماده ${selectedCurricula.title}',
-                style: TextStyle(
-                    color: Theme.of(context).textTheme.headline6!.color),
-              ),
-            if (selectedCurricula.ingredients.isNotEmpty)
-              buildSectionTitle(
-                  context, 'فديوهات شرح لماده ${selectedCurricula.title}'),
-            buildContainer(
-              ListView.builder(
-                itemBuilder: (ctx, index) => Card(
-                  color: Theme.of(context).colorScheme.secondary,
-                  child: Padding(
-                    padding:
-                        const EdgeInsets.symmetric(vertical: 5, horizontal: 10),
-                    child: selectedCurricula.ingredients[index].isNotEmpty
-                        ? ElevatedButton(
-                            child: Text(
-                              selectedCurricula.ingredients[index],
-                              style: Theme.of(ctx).textTheme.headline6,
-                            ),
-                            onPressed: () => launched = _launchInBrowser(
-                                selectedCurricula.ingredients[index]),
-                          )
-                        : Text(
-                            'لا يوجد فديوهات لماده ${selectedCurricula.title} حتي الان',style: Theme.of(ctx).textTheme.headline6,),
+      body: CustomScrollView(
+        slivers: [
+          SliverAppBar(
+            expandedHeight: 300,
+            pinned: true,
+            flexibleSpace: FlexibleSpaceBar(
+              title:
+                  Text(lan.getTexts('cur-${selectedCurricula.id}').toString()),
+              background: Hero(
+                tag: curriculaId,
+                child: InteractiveViewer(
+                  child: FadeInImage(
+                    image: NetworkImage(selectedCurricula.image),
+                    placeholder: const AssetImage('assets/images/books.jfif'),
+                    fit: BoxFit.cover,
                   ),
                 ),
-                itemCount: selectedCurricula.ingredients.length,
               ),
             ),
-            if (selectedCurricula.ingredients.isNotEmpty)
+          ),
+          SliverList(
+            delegate: SliverChildListDelegate(
+              [
+                Column(
+                  children: [
+                    //urlLunch(context),
+                    if (selectedCurricula.links.isEmpty)
+                      Text(
+                        '${lan.getTexts('link_empty').toString()} ${lan.getTexts('cur-${selectedCurricula.id}')}',
+                        style: TextStyle(
+                            color:
+                                Theme.of(context).textTheme.headline6!.color),
+                      ),
+                    if (selectedCurricula.links.isNotEmpty)
+                      buildSectionTitle(
+                        context,
+                        '${lan.getTexts('link_not_empty').toString()} ${lan.getTexts('cur-${selectedCurricula.id}')}',
+                      ),
+                    buildContainer(
+                      ListView.builder(
+                        itemBuilder: (ctx, index) => Card(
+                          color: Theme.of(context).colorScheme.secondary,
+                          child: Padding(
+                            padding: const EdgeInsets.symmetric(
+                                vertical: 5, horizontal: 10),
+                            child: selectedCurricula.links[index].isNotEmpty
+                                ? ElevatedButton(
+                                    // child: Text(
+                                    //   lan.getTexts('links-id') as List<String>,
+                                    //   style: Theme.of(ctx).textTheme.headline6,
+                                    // ),
+                                    child: Text(
+                                      selectedCurricula.links[index],
+                                      style: Theme.of(ctx).textTheme.headline6,
+                                    ),
+                                    onPressed: () => launched =
+                                        _launchInBrowser(
+                                            selectedCurricula.links[index]),
+                                  )
+                                : Text(
+                                    '${lan.getTexts('link_empty').toString()} ${lan.getTexts('cur-${selectedCurricula.id}')}',
+                                    style: Theme.of(ctx).textTheme.headline6,
+                                  ),
+                          ),
+                        ),
+                        itemCount: selectedCurricula.links.length,
+                      ),
+                    ),
+                    if (selectedCurricula.links.isNotEmpty)
 
-              // GestureDetector(
-              //   onTap: () {
-              //     _launchUrl("https://www.google.com/");
-              //     // _launchUrl("${selectedCurricula.ingredients.toString()}");
-              //   },
-              //   child: Container(
-              //     height: 40,
-              //     width: 100,
-              //     color: Colors.green,
-              //     child: Center(child: Text("Launch Url")),
-              //   ),
-              // ),
-              ElevatedButton(
-                child: const Text('Open PDF'),
-                onPressed: () =>
-                    launched = _launchInBrowser(selectedCurricula.pdf),
-              ),
-          ],
-        ),
+                      // GestureDetector(
+                      //   onTap: () {
+                      //     _launchUrl("https://www.google.com/");
+                      //     // _launchUrl("${selectedCurricula.ingredients.toString()}");
+                      //   },
+                      //   child: Container(
+                      //     height: 40,
+                      //     width: 100,
+                      //     color: Colors.green,
+                      //     child: Center(child: Text("Launch Url")),
+                      //   ),
+                      // ),
+                      ElevatedButton(
+                        child: Text(lan.getTexts('pdf_viewer').toString()),
+                        onPressed: () =>
+                            launched = _launchInBrowser(selectedCurricula.pdf),
+                      ),
+                  ],
+                ),
+              ],
+            ),
+          ),
+        ],
       ),
       floatingActionButton: FloatingActionButton(
         onPressed: () => Provider.of<CurriculaProvider>(context, listen: false)
